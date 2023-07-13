@@ -147,9 +147,9 @@ void ut(prim)() {
     };
 
     Prim p(4, edges);
-    auto r = p.run();
-    dbg("result is %lx", r);
-    assert(r == 9);
+    // auto r = p.run();
+    // dbg("result is %lx", r);
+    assert(p.run() == 9);
     ok("prim passed");
 }
 
