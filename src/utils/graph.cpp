@@ -1,12 +1,12 @@
 #include "graph.h"
 
-Graph::Graph(ssize_t n, vector<tuple<ssize_t, ssize_t, ssize_t>> edges) :
-    graph(n, vector<Distance>(n)), 
-    node_nr(n) 
+Graph::Graph(ssize_t vn, vector<tuple<ssize_t, ssize_t, ssize_t>> edges) :
+    graph(vn, vector<Distance>(vn)), 
+    node_nr(vn) 
 {
 
-    for(auto i = 0; i < n; i++) {
-        for(auto j = 0; j < n; j++) {
+    for(auto i = 0; i < vn; i++) {
+        for(auto j = 0; j < vn; j++) {
             this->graph[i][j] = Distance::INF;
         }
     }

@@ -5,15 +5,11 @@
 #include "floyd.h"
 #include "dijkstra.h"
 #include "kruskal.h"
+#include "prim.h"
 
 #include <assert.h>
 
-void show(vector<uint64_t> v) {
-    for(auto &i: v) {
-        std::cout << i << ", ";
-    }
-    std::cout << std::endl;
-}
+
 
 
 #define ut(name) (name##_ut) 
@@ -139,12 +135,31 @@ void ut(kruskal)() {
     assert(k.run() == 9);
     ok("kruskal passed");
 }
+
+void ut(prim)() {
+    vector<tuple<ssize_t, ssize_t, ssize_t>> edges = {
+        {A, B, 3},
+        {A, D, 7},
+        {B, D, 4},
+        {B, C, 2},
+        {C, D, 6},
+        {C, A, 3},
+    };
+
+    Prim p(4, edges);
+    auto r = p.run();
+    dbg("result is %lx", r);
+    assert(r == 9);
+    ok("prim passed");
+}
+
 void uts() {
     ut(bfs)();
     ut(dfs)();
     ut(floyd)();
     ut(dijkstra)();
     ut(kruskal)();
+    ut(prim)();
 }
 int main(int argc, char** argv)
 {
